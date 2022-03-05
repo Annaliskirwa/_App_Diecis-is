@@ -34,6 +34,9 @@ def tutorial_detail(request, pk):
     # find tutorial by pk (id)
     try: 
         tutorial = Tutorial.objects.get(pk=pk) 
+        if request.method == 'GET': 
+            tutorial_serializer = TutorialSerializer(tutorial) 
+            return JsonResponse(tutorial_serializer.data) 
     except Tutorial.DoesNotExist: 
         return JsonResponse({'message': 'Ooops! The tutorial does not exist'}, status=status.HTTP_404_NOT_FOUND) 
  
