@@ -44,6 +44,9 @@ def tutorial_detail(request, pk):
                 tutorial_serializer.save() 
                 return JsonResponse(tutorial_serializer.data, status=status.HTTP_200_OK) 
             return JsonResponse(tutorial_serializer.errors, status=status.HTTP_400_BAD_REQUEST) 
+        elif request.method == 'DELETE': 
+            tutorial.delete() 
+            return JsonResponse({'message': 'Aaah! The tutorial was deleted successfully!'}, status=status.HTTP_204_NO_CONTENT)
     except Tutorial.DoesNotExist: 
         return JsonResponse({'message': 'Ooops! The tutorial does not exist'}, status=status.HTTP_404_NOT_FOUND) 
  
