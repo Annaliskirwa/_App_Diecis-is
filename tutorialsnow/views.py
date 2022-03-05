@@ -34,6 +34,7 @@ def tutorial_list(request):
 
 @api_view(['GET', 'PUT', 'DELETE'])
 def tutorial_detail(request, pk):
+    # GET / PUT / DELETE tutorial
     # find tutorial by pk (id)
     try: 
         tutorial = Tutorial.objects.get(pk=pk) 
@@ -53,9 +54,12 @@ def tutorial_detail(request, pk):
     except Tutorial.DoesNotExist: 
         return JsonResponse({'message': 'Ooops! The tutorial does not exist'}, status=status.HTTP_404_NOT_FOUND) 
  
-    # GET / PUT / DELETE tutorial
 
 @api_view(['GET'])
 def tutorial_list_published(request):
     # GET all published tutorials
-    return
+    tutorials = Tutorial.objects.filter(published=True)
+        
+    if request.method == 'GET': 
+        tutorials_serializer = TutorialSerializer(tutorials, many=True)
+        return JsonResponse(tutorials_serializer.data, safe=False)
