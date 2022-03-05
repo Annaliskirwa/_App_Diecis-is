@@ -21,3 +21,8 @@ def tutorial_detail(request, pk):
         return JsonResponse({'message': 'Ooops! The tutorial does not exist'}, status=status.HTTP_404_NOT_FOUND) 
  
     # GET / PUT / DELETE tutorial
+
+@api_view(['GET'])
+def tutorial_list_published(request):
+    # GET all published tutorials
+    return
