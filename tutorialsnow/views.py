@@ -10,7 +10,16 @@ from tutorialsnow.serializers import TutorialSerializer
 @api_view(['GET', 'POST', 'DELETE'])
 def tutorial_list(request):
     # GET list of tutorials, POST a new tutorial, DELETE all tutorials
-    return
+     if request.method == 'GET':
+        tutorials = Tutorial.objects.all()
+        
+        title = request.GET.get('title', None)
+        if title is not None:
+            tutorials = tutorials.filter(title__icontains=title)
+        
+        tutorials_serializer = TutorialSerializer(tutorials, many=True)
+        return JsonResponse(tutorials_serializer.data, safe=False)
+        # 'safe=False' for objects serialization
 
 @api_view(['GET', 'PUT', 'DELETE'])
 def tutorial_detail(request, pk):
