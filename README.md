@@ -55,7 +55,7 @@ There are no known bugs so far
 ## Support and contact details
 In case of any problem while interacting with the web application, reach out to me at ``annaliskirwa@gmail.com``
 ### License.
-MIT Copyright (c) 2021 **[MITlicense](LICENSE)**
+MIT Copyright (c) 2022 **[MITlicense](LICENSE)**
 
 
 
