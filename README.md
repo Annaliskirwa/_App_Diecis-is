@@ -2,7 +2,7 @@
 #### 07/03/2022   
 #### By **Annalis Kirwa** 
 ## Description  
-This is a python application that hosts the backend of the Tutorials web application.
+This is a python application that hosts the backend of the Tutorials web application <a href = "https://annaliskirwa.github.io/_App_Diecisiete/tutorials">link</a>.
 It deals with the dtabases, views and API endpoints that will be consumed by the Tutorials web application on the frontend.  
 
 ## Features  
